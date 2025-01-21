@@ -3,6 +3,7 @@ import FloatingLabelInput from "../FloatingLabelInput";
 import InputDate from "../InputDate";
 import { Button } from "@nextui-org/react";
 import { Checkbox } from "@nextui-org/checkbox";
+import FileUploadInput from "../FileUploadInput";
 
 export default function PersonalDetails() {
   const [isSelected, setIsSelected] = useState(false);
@@ -52,9 +53,7 @@ export default function PersonalDetails() {
     e.preventDefault();
     console.log(formData);
   };
-  const handleUpload = () => {
-    //upload photo to db and get the url
-  };
+
 
   return (
     <div className="flex flex-col items-center justify-center w-full p-3">
@@ -113,22 +112,9 @@ export default function PersonalDetails() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="flex flex-col gap-4 md:flex-row ">
-                <FloatingLabelInput id={"photo"} label={"Photo"} required={true} onChange={handleChange} type="file" />
-                <Button
-                  color="warning"
-                  variant="ghost"
-                  id={"photosubmit"}
-                  className="m-6"
-                  onSubmit={(e: React.FormEvent) => {
-                    e.preventDefault();
-                    handleUpload();
-                  }}
-                  disabled={true}
-                >
-                  UPLOAD
-                </Button>
-              </div>
+              
+                <FileUploadInput id={"studentPhoto"} label={"Photo"} required={true}  />
+            
               <span className="text-red-500 font-thin text-small">Upload an image file of size less than 2mb</span>
             </div>
             <div className="flex flex-col gap-4">

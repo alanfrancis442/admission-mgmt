@@ -3,6 +3,7 @@ import FloatingLabelInput from "../FloatingLabelInput";
 import DropDownInput from "../DropDownInput";
 import { Button } from "@nextui-org/react";
 import { _10TH_BOARD, _12TH_BOARD } from "@/app/constants/dropdownOptions";
+import FileUploadInput from "../FileUploadInput";
 
 export default function EducationalDetails() {
   const [formData, setFormData] = useState({
@@ -32,9 +33,7 @@ export default function EducationalDetails() {
     e.preventDefault();
     console.log(formData);
   };
-  const handleUpload = () => {
-    //upload photo to db and get the url
-  };
+
 
   return (
     <div className="flex flex-col items-center justify-center w-full p-3">
@@ -69,29 +68,8 @@ export default function EducationalDetails() {
                 labelPlacement="outside"
               />
             </div>
-            <div className="flex flex-col gap-4 md:flex-row ">
-              <FloatingLabelInput
-                id={"_10thMarklist"}
-                label={"Mark list upload [10th]"}
-                required={true}
-                onChange={handleChange}
-                type="file"
-                labelPlacement="outside"
-              />
-              <Button
-                color="warning"
-                variant="ghost"
-                id={"_10thMarklist"}
-                className="m-6"
-                onSubmit={(e: React.FormEvent) => {
-                  e.preventDefault();
-                  handleUpload();
-                }}
-                disabled={true}
-              >
-                UPLOAD
-              </Button>
-            </div>
+            <FileUploadInput id={"marklist10th"} label={"Mark List upload [10th]"} required={true}  />
+
             <span className="text-red-500 font-thin text-small">
               Upload an image file of size less than 2mb
             </span>
@@ -123,29 +101,8 @@ export default function EducationalDetails() {
                 labelPlacement="outside"
               />
             </div>
-            <div className="flex flex-col gap-4 md:flex-row ">
-              <FloatingLabelInput
-                id={"_12thMarklist"}
-                label={"Mark list upload [12th]"}
-                required={false}
-                onChange={handleChange}
-                type="file"
-                labelPlacement="outside"
-              />
-              <Button
-                color="warning"
-                variant="ghost"
-                id={"_12thMarklist"}
-                className="m-6"
-                onSubmit={(e: React.FormEvent) => {
-                  e.preventDefault();
-                  handleUpload();
-                }}
-                disabled={true}
-              >
-                UPLOAD
-              </Button>
-            </div>
+            <FileUploadInput id={"marklist12th"} label={"Mark List upload [12th]"}   />
+            
             <span className="text-red-500 font-thin text-small">
               Upload an image file of size less than 2mb
             </span>
@@ -237,28 +194,7 @@ export default function EducationalDetails() {
               />
             </div>
           </div>
-          <div className="flex flex-col gap-4 md:flex-row">
-            <FloatingLabelInput
-              id={"KeamMarklist"}
-              label={"Mark list upload [KEAM]"}
-              required={false}
-              onChange={handleChange}
-              type="file"
-            />
-            <Button
-              color="warning"
-              variant="ghost"
-              id={"KeamMarklist"}
-              className="m-6"
-              onSubmit={(e: React.FormEvent) => {
-                e.preventDefault();
-                handleUpload();
-              }}
-              disabled={true}
-            >
-              UPLOAD
-            </Button>
-          </div>
+          <FileUploadInput id={"marklistKeam"} label={"Mark List upload KEAM"} required={true}  />
           <span className="text-red-500 font-thin text-small">
             Upload an image file of size less than 2mb
           </span>
